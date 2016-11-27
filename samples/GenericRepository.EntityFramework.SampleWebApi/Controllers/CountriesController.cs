@@ -7,20 +7,24 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace GenericRepository.EntityFramework.SampleWebApi.Controllers {
+namespace GenericRepository.EntityFramework.SampleWebApi.Controllers
+{
 
-    public class CountriesController : ApiController {
+    public class CountriesController : ApiController
+    {
 
         private readonly IEntityRepository<Country> _countryRepository;
-        private readonly IMappingEngine _mapper;
-        public CountriesController(IEntityRepository<Country> countryRepository, IMappingEngine mapper) {
+        private readonly IMapper _mapper;
+        public CountriesController(IEntityRepository<Country> countryRepository, IMapper mapper)
+        {
 
             _countryRepository = countryRepository;
             _mapper = mapper;
         }
 
         // GET api/countries?pageindex=1&pagesize=5
-        public PaginatedDto<CountryDto> GetCountries(int pageIndex, int pageSize) {
+        public PaginatedDto<CountryDto> GetCountries(int pageIndex, int pageSize)
+        {
 
             PaginatedList<Country> countries = _countryRepository.Paginate(pageIndex, pageSize);
             PaginatedDto<CountryDto> countryPaginatedDto = _mapper.Map<PaginatedList<Country>, PaginatedDto<CountryDto>>(countries);
@@ -28,10 +32,12 @@ namespace GenericRepository.EntityFramework.SampleWebApi.Controllers {
         }
 
         // GET api/countries/1
-        public CountryDto GetCountry(int id) {
+        public CountryDto GetCountry(int id)
+        {
 
             Country country = _countryRepository.GetSingle(id);
-            if (country == null) {
+            if (country == null)
+            {
 
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
@@ -40,7 +46,8 @@ namespace GenericRepository.EntityFramework.SampleWebApi.Controllers {
         }
 
         // POST api/countries
-        public HttpResponseMessage PostCountry(CountryRequestModel requestModel) {
+        public HttpResponseMessage PostCountry(CountryRequestModel requestModel)
+        {
 
             Country country = _mapper.Map<CountryRequestModel, Country>(requestModel);
             country.CreatedOn = DateTimeOffset.Now;
@@ -56,10 +63,12 @@ namespace GenericRepository.EntityFramework.SampleWebApi.Controllers {
         }
 
         // PUT api/countries/1
-        public CountryDto PutCountry(int id, CountryRequestModel requestModel) {
+        public CountryDto PutCountry(int id, CountryRequestModel requestModel)
+        {
 
             Country country = _countryRepository.GetSingle(id);
-            if (country == null) {
+            if (country == null)
+            {
 
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
@@ -77,10 +86,12 @@ namespace GenericRepository.EntityFramework.SampleWebApi.Controllers {
         }
 
         // DELETE api/countries/1
-        public HttpResponseMessage DeleteCountry(int id) {
+        public HttpResponseMessage DeleteCountry(int id)
+        {
 
             Country country = _countryRepository.GetSingle(id);
-            if (country == null) {
+            if (country == null)
+            {
 
                 throw new HttpResponseException(HttpStatusCode.NotFound);
             }
@@ -91,7 +102,8 @@ namespace GenericRepository.EntityFramework.SampleWebApi.Controllers {
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
 
-        private Uri GetCountryLink(int id) {
+        private Uri GetCountryLink(int id)
+        {
 
             return new Uri(Url.Link("DefaultHttpRoute", new { id = id }));
         }

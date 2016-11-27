@@ -9,21 +9,25 @@ using System.Linq;
 using System.Text;
 using Xunit;
 
-namespace GenericRepository.EntityFramework.SampleWebApi.Test {
-    
-    public class CountriesControllerTest {
+namespace GenericRepository.EntityFramework.SampleWebApi.Test
+{
 
-        public CountriesControllerTest() {
+    public class CountriesControllerTest
+    {
+
+        public CountriesControllerTest()
+        {
 
             Global.RegisterMappings();
         }
 
         [Fact]
-        public void GetCountries_Should_Get_Expected_Result() { 
-            
+        public void GetCountries_Should_Get_Expected_Result()
+        {
+
             // Arrange
 
-            var countries = new List<Country>() { 
+            var countries = new List<Country>() {
                 new Country { Id = 1, Name = "Turkey", ISOCode = "TR", CreatedOn = DateTimeOffset.Now },
                 new Country { Id = 2, Name = "United Kingdom", ISOCode = "EN", CreatedOn = DateTimeOffset.Now },
                 new Country { Id = 3, Name = "United States", ISOCode = "US", CreatedOn = DateTimeOffset.Now },
@@ -32,14 +36,15 @@ namespace GenericRepository.EntityFramework.SampleWebApi.Test {
                 new Country { Id = 4, Name = "Uruguay", ISOCode = "UY", CreatedOn = DateTimeOffset.Now }
             };
             var dbSet = new FakeDbSet<Country>();
-            foreach (var country in countries) {
+            foreach (var country in countries)
+            {
                 dbSet.Add(country);
             }
 
             var entitiesContext = new Mock<IEntitiesContext>();
             entitiesContext.Setup(ec => ec.Set<Country>()).Returns(dbSet);
             var countriesRepo = new EntityRepository<Country>(entitiesContext.Object);
-            var countriesController = new CountriesController(countriesRepo, Mapper.Engine);
+            var countriesController = new CountriesController(countriesRepo, Global._mapper);
             var pageIndex = 1;
             var pageSize = 3;
 
