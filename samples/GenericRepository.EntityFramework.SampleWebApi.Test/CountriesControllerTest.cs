@@ -2,6 +2,7 @@
 using GenericRepository.EntityFramework.SampleCore.Entities;
 using GenericRepository.EntityFramework.SampleWebApi.Controllers;
 using GenericRepository.EntityFramework.SampleWebApi.Test.Infrastructure;
+using GenericService.Services;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -44,12 +45,13 @@ namespace GenericRepository.EntityFramework.SampleWebApi.Test
             var entitiesContext = new Mock<IEntitiesContext>();
             entitiesContext.Setup(ec => ec.Set<Country>()).Returns(dbSet);
             var countriesRepo = new EntityRepository<Country>(entitiesContext.Object);
-            var countriesController = new CountriesController(countriesRepo, Global._mapper);
+            GenericService<Country, int> countryService = new SampleCore.Services.CountryService(countriesRepo);
+            var countriesController = new CountriesController(countryService, Global._mapper);
             var pageIndex = 1;
             var pageSize = 3;
 
             // Act
-            var paginatedDto = countriesController.GetCountries(pageIndex, pageSize);
+            var paginatedDto = countriesController.GetCountries(pageIndex, pageSize).Result;
 
             // Assert
             Assert.NotNull(paginatedDto);

@@ -96,6 +96,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GenericService\GenericService.csproj">
+      <Project>{9102D414-CA60-4D6B-B3DE-3F70529BD505}</Project>
+      <Name>GenericService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\GenericRepository.EntityFramework\GenericRepository.EntityFramework.csproj">
       <Project>{06c14ab3-fe2a-4119-89df-70e7c410a8ff}</Project>
       <Name>GenericRepository.EntityFramework</Name>

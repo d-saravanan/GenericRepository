@@ -12,7 +12,8 @@ namespace GenericRepository.EntityFramework.SampleWebApi.App_Start
         {
             AutoMapperConfig.Configure();
             AutoMapperConfig.InitProfiles<Country, CountryDto>();
-            _mapper = new Mapper(AutoMapperConfig.MapperConfiguration);
+            _mapper = new Mapper(Mapper.Configuration);
+            _mapper.ConfigurationProvider.AssertConfigurationIsValid();
             return _mapper;
         }
 

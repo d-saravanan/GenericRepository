@@ -52,14 +52,20 @@
   <ItemGroup>
     <Compile Include="AccommodationEntities.cs" />
     <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\CountrySearchCondition.cs" />
     <Compile Include="Entities\Hotel.cs" />
     <Compile Include="Entities\Resort.cs" />
     <Compile Include="Extensions\HotelRepositoryExtensions.cs" />
     <Compile Include="Migrations\201301081824221_Init.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CountryService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GenericService\GenericService.csproj">
+      <Project>{9102d414-ca60-4d6b-b3de-3f70529bd505}</Project>
+      <Name>GenericService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\GenericRepository.EntityFramework\GenericRepository.EntityFramework.csproj">
       <Project>{06c14ab3-fe2a-4119-89df-70e7c410a8ff}</Project>
       <Name>GenericRepository.EntityFramework</Name>

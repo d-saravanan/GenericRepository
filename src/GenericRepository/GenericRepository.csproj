@@ -53,17 +53,22 @@
     <Compile Include="..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="IEntity%271.cs" />
-    <Compile Include="IEntity.cs" />
-    <Compile Include="IRepository%271.cs" />
-    <Compile Include="IRepository%272.cs" />
-    <Compile Include="PaginatedList.cs" />
+    <Compile Include="Entities\EntitySearchCondition.cs" />
+    <Compile Include="Enums\EntityOperations.cs" />
+    <Compile Include="EntityContracts\IEntity%271.cs" />
+    <Compile Include="EntityContracts\IEntity.cs" />
+    <Compile Include="EntityContracts\IEntitySearchCondition.cs" />
+    <Compile Include="EntityContracts\IRepository%271.cs" />
+    <Compile Include="EntityContracts\IRepository%272.cs" />
+    <Compile Include="Entities\PaginatedList.cs" />
+    <Compile Include="Exceptions\EntityValidationExceptions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QueryableExtensions.cs" />
+    <Compile Include="Extensions\QueryableExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GenericRepository.nuspec" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

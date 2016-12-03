@@ -15,6 +15,7 @@ namespace GenericRepository.EntityFramework.SampleWebApi
             RegisterRoutes(config);
             RegisterMappings();
             RegisterDependencies(config);
+            config.Filters.Add(new Insights.ApiTimerAttribute());
         }
 
         public static void RegisterMappings()

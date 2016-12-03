@@ -5,12 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace GenericRepository.EntityFramework.Test {
-    
-    public class EntityRepositoryTest {
+namespace GenericRepository.EntityFramework.Test
+{
+
+    public class EntityRepositoryTest
+    {
 
         [Fact]
-        public void GetAll_Should_Call_Set_Once_And_Get_Expected_Amount_Of_Entities() {
+        public void GetAll_Should_Call_Set_Once_And_Get_Expected_Amount_Of_Entities()
+        {
 
             // Arrange
             var people = GetDummyPeople(2);
@@ -27,7 +30,8 @@ namespace GenericRepository.EntityFramework.Test {
         }
 
         [Fact]
-        public void GetSingle_Should_Call_Set_Once_And_Get_Expected_Entity() {
+        public void GetSingle_Should_Call_Set_Once_And_Get_Expected_Entity()
+        {
 
             // Arrange
             var targetPersonId = 2;
@@ -39,7 +43,7 @@ namespace GenericRepository.EntityFramework.Test {
             var expectedPeson = people.FirstOrDefault(x => x.Id == targetPersonId);
 
             // Act
-            Person person = entityRepository.GetSingle(targetPersonId);
+            Person person = entityRepository.GetSingleAsync(targetPersonId).Result;
 
             // Assert
             peopleContextMock.Verify(pc => pc.Set<Person>(), Times.Once());
@@ -47,7 +51,8 @@ namespace GenericRepository.EntityFramework.Test {
         }
 
         [Fact]
-        public void GetSingle_Should_Call_Set_Once_And_Return_Null() {
+        public void GetSingle_Should_Call_Set_Once_And_Return_Null()
+        {
 
             // Arrange
             var targetPersonId = 4;
@@ -58,7 +63,7 @@ namespace GenericRepository.EntityFramework.Test {
             var entityRepository = new EntityRepository<Person>(peopleContextMock.Object);
 
             // Act
-            Person person = entityRepository.GetSingle(targetPersonId);
+            Person person = entityRepository.GetSingleAsync(targetPersonId).Result;
 
             // Assert
             peopleContextMock.Verify(pc => pc.Set<Person>(), Times.Once());
@@ -67,10 +72,12 @@ namespace GenericRepository.EntityFramework.Test {
 
         // Privates
 
-        private FakeDbSet<Person> GetPersonDbSet(IEnumerable<Person> people) {
+        private FakeDbSet<Person> GetPersonDbSet(IEnumerable<Person> people)
+        {
 
             var personDbSet = new FakeDbSet<Person>();
-            foreach (var person in people) {
+            foreach (var person in people)
+            {
 
                 personDbSet.Add(person);
             }
@@ -78,11 +85,14 @@ namespace GenericRepository.EntityFramework.Test {
             return personDbSet;
         }
 
-        private IEnumerable<Person> GetDummyPeople(int count) {
+        private IEnumerable<Person> GetDummyPeople(int count)
+        {
 
-            for (int i = 0; i < count; i++) {
+            for (int i = 0; i < count; i++)
+            {
 
-                yield return new Person {
+                yield return new Person
+                {
                     Id = i,
                     Name = string.Concat("Foo", i),
                     Surname = string.Concat("Bar", i),

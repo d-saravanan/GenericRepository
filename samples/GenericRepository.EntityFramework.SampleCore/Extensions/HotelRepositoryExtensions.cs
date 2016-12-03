@@ -1,16 +1,14 @@
 ﻿using GenericRepository.EntityFramework.SampleCore.Entities;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 
-namespace GenericRepository.EntityFramework.SampleCore {
-    
-    public static class HotelRepositoryExtensions {
-
-        public static IQueryable<Hotel> GetAllByResortId(this IEntityRepository<Hotel, int> hotelRepository, int resortId) {
-
-            return hotelRepository.FindBy(x => x.ResortId == resortId);
+namespace GenericRepository.EntityFramework.SampleCore
+{
+    public static class HotelRepositoryExtensions
+    {
+        public static Task<IQueryable<Hotel>> GetAllByResortId(this IEntityRepository<Hotel, int> hotelRepository, int resortId)
+        {
+            return hotelRepository.FindByAsync(x => x.ResortId == resortId);
         }
     }
 }

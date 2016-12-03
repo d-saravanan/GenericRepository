@@ -161,6 +161,7 @@
     <Compile Include="App_Start\DependencyRegistryConfig.cs" />
     <Compile Include="App_Start\MapperConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\CountriesController.cs" />
     <Compile Include="Dtos\CountryDto.cs" />
     <Compile Include="Dtos\IDto.cs" />
@@ -169,6 +170,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Insights\ApiTimerAttribute.cs" />
     <Compile Include="Mapping\AutomapperConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RequestModels\CountryRequestModel.cs" />
@@ -184,6 +186,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\GenericService\GenericService.csproj">
+      <Project>{9102D414-CA60-4D6B-B3DE-3F70529BD505}</Project>
+      <Name>GenericService</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\src\GenericRepository.EntityFramework\GenericRepository.EntityFramework.csproj">
       <Project>{06c14ab3-fe2a-4119-89df-70e7c410a8ff}</Project>
       <Name>GenericRepository.EntityFramework</Name>

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericRepository", "src\GenericRepository\GenericRepository.csproj", "{E84FD26D-1670-4EB7-97AC-5501E0ED85FD}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{1723F543-EA5C-4397-9ED7-57C391ED2A94}"
@@ -30,6 +32,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericRepository.EntityFramework.SampleWebApi", "samples\GenericRepository.EntityFramework.SampleWebApi\GenericRepository.EntityFramework.SampleWebApi.csproj", "{0CF44FAB-D0D4-4ECD-B7B8-086E765C6999}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericRepository.EntityFramework.SampleWebApi.Test", "samples\GenericRepository.EntityFramework.SampleWebApi.Test\GenericRepository.EntityFramework.SampleWebApi.Test.csproj", "{EC023D62-F9E8-4770-8A5C-62C5BD98B652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericService", "GenericService\GenericService.csproj", "{9102D414-CA60-4D6B-B3DE-3F70529BD505}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +69,10 @@ Global
 		{EC023D62-F9E8-4770-8A5C-62C5BD98B652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC023D62-F9E8-4770-8A5C-62C5BD98B652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC023D62-F9E8-4770-8A5C-62C5BD98B652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9102D414-CA60-4D6B-B3DE-3F70529BD505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9102D414-CA60-4D6B-B3DE-3F70529BD505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9102D414-CA60-4D6B-B3DE-3F70529BD505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9102D414-CA60-4D6B-B3DE-3F70529BD505}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
