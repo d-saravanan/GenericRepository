@@ -1,5 +1,3 @@
-> :warning: **THIS REPOSITORY IS NOT MAINTAINED ANYMORE. IF YOU WOULD LIKE TO VOLUNTEER TO BE THE MAINTAINER, PLEASE [CONTACT ME](https://twitter.com/tourismgeek).**
-
 This little project contains a Generic Repository implementation for several data access platforms such as Entity Framework.
 
 You can find more information about the main idea of this pattern and the usage on ASP.NET MVC along with Unit Testing by visiting the below links:
@@ -9,17 +7,9 @@ You can find more information about the main idea of this pattern and the usage 
 
 # How to Install
 
-You can directly install this little project from [Nuget][6]. There are two packages:
-
-**[GenericRepository][7]**
-
-    PM> Install-Package GenericRepository
+I have not yet updated the nuget repository with the latest bits
 
 Generic Repository Insrastructure For .NET Applications
-
-**[GenericRepository.EF][8]**
-
-    PM> Install-Package GenericRepository.EF
 
 Generic Repository DbContext Implementation
 
@@ -36,6 +26,3 @@ You can also find all the releases under [Tags][5] section.
   [3]: https://github.com/tugberkugurlu/GenericRepository
   [4]: https://github.com/tugberkugurlu/GenericRepository/tree/develop
   [5]: https://github.com/tugberkugurlu/GenericRepository/tags
-  [6]: http://nuget.org
-  [7]: https://nuget.org/packages/GenericRepository
-  [8]: https://nuget.org/packages/GenericRepository.EF
