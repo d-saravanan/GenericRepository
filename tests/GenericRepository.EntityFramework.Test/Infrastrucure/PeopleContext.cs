@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace GenericRepository.EntityFramework.Test.Infrastrucure
 {
@@ -30,5 +31,9 @@ namespace GenericRepository.EntityFramework.Test.Infrastrucure
         /// </value>
         public IDbSet<Book> Books { get; set; }
 
+        public Task<int> SaveChangesAsync()
+        {
+            return Task.FromResult(1);
+        }
     }
 }
