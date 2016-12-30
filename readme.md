@@ -8,7 +8,10 @@
 </span>
 </div>
 <div>
-<img src="https://ci.appveyor.com/api/projects/status/github/d-saravanan/GenericRepository?svg=true" alt="Project Badge" width="300">
+<span> Build Status : </span>
+<span>
+<img src="https://ci.appveyor.com/api/projects/status/github/d-saravanan/GenericRepository?svg=true" alt="GenericRepository Build Status Badge">
+</span>
 </div>
 This little project contains a Generic Repository implementation for several data access platforms such as Entity Framework.
 
