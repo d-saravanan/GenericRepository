@@ -8,7 +8,7 @@
 </span>
 </div>
 <div>
-<img src="https://ci.appveyor.com/api/projects/status/d-saravanan/GenericRepository?retina=true" alt="Project Badge" width="300">
+<img src="https://ci.appveyor.com/api/projects/status/GenericRepository?svg=true" alt="Project Badge" width="300">
 </div>
 This little project contains a Generic Repository implementation for several data access platforms such as Entity Framework.
 
