@@ -75,7 +75,9 @@ namespace GenericRepository
             PageIndex = pageIndex;
             PageSize = pageSize;
             TotalCount = totalCount;
-            TotalPageCount = (int)Math.Ceiling(totalCount / (double)pageSize);
+  
+
+          TotalPageCount = (int)Math.Ceiling(totalCount / (double)pageSize);
         }
     }
 }

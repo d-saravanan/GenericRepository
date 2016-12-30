@@ -147,6 +147,12 @@ namespace GenericRepository.EntityFramework
         }
 
         // privates
+        /// <summary>
+        /// Gets the database entity entry safely.
+        /// </summary>
+        /// <typeparam name="TEntity">The type of the entity.</typeparam>
+        /// <param name="entity">The entity.</param>
+        /// <returns></returns>
         private DbEntityEntry GetDbEntityEntrySafely<TEntity>(TEntity entity) where TEntity : class
         {
 

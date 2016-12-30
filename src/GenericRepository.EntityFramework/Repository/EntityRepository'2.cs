@@ -219,6 +219,17 @@ namespace GenericRepository.EntityFramework
 
         // Privates
 
+        /// <summary>
+        /// Paginates the asynchronous.
+        /// </summary>
+        /// <typeparam name="TKey">The type of the key.</typeparam>
+        /// <param name="pageIndex">Index of the page.</param>
+        /// <param name="pageSize">Size of the page.</param>
+        /// <param name="keySelector">The key selector.</param>
+        /// <param name="predicate">The predicate.</param>
+        /// <param name="orderByType">Type of the order by.</param>
+        /// <param name="includeProperties">The include properties.</param>
+        /// <returns></returns>
         private async Task<PaginatedList<TEntity>> PaginateAsync<TKey>(int pageIndex, int pageSize, Expression<Func<TEntity, TKey>> keySelector, Expression<Func<TEntity, bool>> predicate, OrderByType orderByType, params Expression<Func<TEntity, object>>[] includeProperties)
         {
             IQueryable<TEntity> queryable =
@@ -231,6 +242,15 @@ namespace GenericRepository.EntityFramework
             return paginatedList;
         }
 
+        /// <summary>
+        /// Filters the specified database set.
+        /// </summary>
+        /// <typeparam name="TProperty">The type of the property.</typeparam>
+        /// <param name="dbSet">The database set.</param>
+        /// <param name="property">The property.</param>
+        /// <param name="value">The value.</param>
+        /// <returns></returns>
+        /// <exception cref="System.ArgumentException">Property expected - property</exception>
         private IQueryable<TEntity> Filter<TProperty>(IQueryable<TEntity> dbSet,
             Expression<Func<TEntity, TProperty>> property, TProperty value)
             where TProperty : IComparable
@@ -250,9 +270,18 @@ namespace GenericRepository.EntityFramework
             return dbSet.Where(lambda);
         }
 
-        private enum OrderByType
+        /// <summary>
+        /// The order by type enum
+        /// </summary>
+        private enum OrderByType: int
         {
+            /// <summary>
+            /// The ascending
+            /// </summary>
             Ascending,
+            /// <summary>
+            /// The descending
+            /// </summary>
             Descending
         }
     }
