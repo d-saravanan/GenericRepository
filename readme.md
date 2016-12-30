@@ -1,9 +1,15 @@
-<p>Build Status : </p>
+<div>
+<span>Coverity Analysis : </span>
+<span>
 <a href="https://scan.coverity.com/projects/d-saravanan-genericrepository">
   <img alt="Coverity Scan Build Status"
        src="https://scan.coverity.com/projects/10953/badge.svg"/>
 </a>
-
+</span>
+</div>
+<div>
+<img src="https://ci.appveyor.com/api/projects/status/d-saravanan/GenericRepository?retina=true" alt="Project Badge" width="300">
+</div>
 This little project contains a Generic Repository implementation for several data access platforms such as Entity Framework.
 
 You can find more information about the main idea of this pattern and the usage on ASP.NET MVC along with Unit Testing by visiting the below links:
